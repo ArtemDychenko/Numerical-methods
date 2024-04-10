@@ -1,0 +1,38 @@
+function [numer_indeksu, Edges, I, B, A, b, r] = page_rank()
+    numer_indeksu = 192441;
+    L1 = mod(numer_indeksu, 100);
+    L1 = floor(L1/10);
+    L2 = mod(numer_indeksu, 1000);
+    L2 = floor(L2/100);
+    connection1 = mod(L1, 7) + 1;
+    connection2 = mod(L2, 7) + 1;
+    
+    
+    N = 8;
+    
+    Edges = zeros(N);
+    
+Edges(1, [4, 6]) = 1;
+Edges(2, [3, 4, 5]) = 1;
+Edges(3, [5, 6, 7]) = 1;
+Edges(4, [5, 6]) = 1;
+Edges(5, [4, 6]) = 1;
+Edges(6, [4, 7]) = 1;
+Edges(7, 6) = 1;
+Edges(8, [connection1, connection2]) = 1; % Połączenie zgodnie z zasadami
+     
+    
+    I = speye(N);
+    
+    nonzero_indices = find(Edges(2, :));
+    B = sparse(Edges);
+    
+    sum_B = sum(B);
+    A = spdiags(sum_B', 0, N, N);
+    
+    d = 0.85;
+    b = ((1-d)/N) * ones(N, 1);
+    
+    M = (I - d * B) \ b;
+    r = M / sum(M);
+end

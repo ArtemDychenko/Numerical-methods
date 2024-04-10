@@ -1,0 +1,16 @@
+Przeprowadząc wyliczenie dostaliśmy takie wartości:
+Norma błędu residualnego dla metody Jacobiego = NaN
+Czas potrzebny na oblicznia = 1.2213
+Ilość iteracji = 618
+
+Norma błędu residualnego dla metody Gaussa-Seidla = 1839437068.511808
+Czas potrzebny na obliczenie = 98.4747
+Ilość iteracji = 1000
+
+Norma błędu residualnego dla metody bezpośredniej = 0.000000
+Czas potrzebny na obliczenie = 0.5148
+Ilość iteracji = 1
+
+
+Czy metoda Jacobiego zbiega się - Nie
+Czy metoda Gaussa-Seidla zbiega się - Nie
